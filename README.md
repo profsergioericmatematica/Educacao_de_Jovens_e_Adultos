@@ -24,12 +24,19 @@ O portal organiza os recursos em cartões de download rápido:
 ## 📂 Estrutura do Repositório
 
 /
+
 ├── index.html               # Arquivo principal contendo a estrutura, estilos (CSS) e lógica (JS)
+
 ├── arquivos/                # Diretório para armazenar os arquivos de download
+
 │   ├── resumo.pdf           # O PDF do super resumo
+
 │   ├── audio-parte1.m4a     # O primeiro áudio
+
 │   └── audio-parte2.m4a     # O segundo áudio
+
 └── README.md                # Documentação do projeto
+
 
 *Nota: Para que o download funcione perfeitamente, os arquivos devem estar dentro da pasta "arquivos" com os nomes exatos indicados no código.*
 
