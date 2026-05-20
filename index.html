@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Resumo EJA | Material de Estudo</title>
+    <title>Super Resumo EJA | Material de Estudo + Questões Interativas</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -59,7 +59,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ============ PALAVRAS-CHAVE AO FUNDO ============ */
         .word-cloud {
             position: fixed;
             top: 0;
@@ -73,12 +72,10 @@
         .word-cloud span {
             position: absolute;
             font-weight: 700;
-            opacity: 0.30; /* aumentado de 0.10 para 0.20 */
+            opacity: 0.30;
             white-space: nowrap;
             user-select: none;
-            transition: opacity 0.8s;
             animation: wordFloat 25s infinite ease-in-out;
-            letter-spacing: 1px;
         }
         @keyframes wordFloat {
             0%, 100% { transform: translateY(0) translateX(0); }
@@ -86,13 +83,6 @@
             50% { transform: translateY(4px) translateX(-3px); }
             75% { transform: translateY(-3px) translateX(-6px); }
         }
-        .word-cloud span:nth-child(odd) { animation-duration: 30s; animation-delay: -5s; }
-        .word-cloud span:nth-child(even) { animation-duration: 22s; animation-delay: -12s; }
-        .word-cloud span:nth-child(3n) { animation-duration: 28s; animation-delay: -3s; }
-        .word-cloud span:nth-child(5n) { animation-duration: 35s; animation-delay: -18s; }
-        .word-cloud span:nth-child(7n) { animation-duration: 20s; animation-delay: -8s; }
-
-        /* ============ PARTÍCULAS ============ */
         .particles {
             position: fixed;
             top: 0;
@@ -113,8 +103,6 @@
             33% { transform: translateY(-30px) rotate(120deg); }
             66% { transform: translateY(20px) rotate(240deg); }
         }
-
-        /* ============ CONTAINER ============ */
         .container {
             position: relative;
             z-index: 1;
@@ -122,7 +110,6 @@
             width: 100%;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             padding: 48px 40px 44px;
@@ -130,7 +117,6 @@
             text-align: center;
             transition: all 0.3s;
         }
-
         .badge {
             display: inline-flex;
             align-items: center;
@@ -143,14 +129,7 @@
             padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 32px;
-            backdrop-filter: blur(10px);
-            letter-spacing: 0.3px;
         }
-        .badge i {
-            font-size: 14px;
-            color: #e1306c;
-        }
-
         h1 {
             font-size: 38px;
             font-weight: 900;
@@ -159,30 +138,18 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 12px;
-            letter-spacing: -1px;
         }
         .subtitle {
             font-size: 16px;
             color: var(--text-secondary);
             margin-bottom: 40px;
-            line-height: 1.7;
-            font-weight: 400;
         }
-        .highlight {
-            font-weight: 700;
-            background: linear-gradient(135deg, #7c5cfc, #00d2d3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .download-grid {
             display: flex;
             flex-direction: column;
             gap: 18px;
             margin-bottom: 36px;
         }
-
         .download-card {
             display: flex;
             align-items: center;
@@ -193,46 +160,17 @@
             border-radius: 20px;
             padding: 22px 26px;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.35s;
             text-decoration: none;
             color: inherit;
             position: relative;
             overflow: hidden;
-        }
-        .download-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 0.35s;
-            z-index: 0;
-        }
-        .download-card:hover::before {
-            opacity: 1;
         }
         .download-card:hover {
             transform: translateY(-4px);
             border-color: rgba(255,255,255,0.25);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-        .card-pdf::before {
-            background: radial-gradient(circle at center, rgba(255,71,87,0.15) 0%, transparent 70%);
-        }
-        .card-audio1::before {
-            background: radial-gradient(circle at center, rgba(124,92,252,0.15) 0%, transparent 70%);
-        }
-        .card-audio2::before {
-            background: radial-gradient(circle at center, rgba(0,210,211,0.15) 0%, transparent 70%);
-        }
-        .download-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
         .card-icon {
             width: 58px;
             height: 58px;
@@ -242,301 +180,392 @@
             justify-content: center;
             font-size: 26px;
             flex-shrink: 0;
-            transition: all 0.3s;
-            position: relative;
         }
-        .icon-pdf {
-            background: rgba(255,71,87,0.2);
-            color: #ff6b81;
-            box-shadow: var(--glow-pdf);
-        }
-        .icon-audio1 {
-            background: rgba(124,92,252,0.2);
-            color: #9b7ef8;
-            box-shadow: var(--glow-audio1);
-        }
-        .icon-audio2 {
-            background: rgba(0,210,211,0.2);
-            color: #2ed573;
-            box-shadow: var(--glow-audio2);
-        }
-        .download-card:hover .card-icon {
-            transform: scale(1.05);
-        }
-
-        .card-info {
-            text-align: left;
-            flex-grow: 1;
-        }
-        .card-info h3 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-        .card-info p {
-            font-size: 13px;
-            color: #a0aec0;
-            margin: 0;
-            font-weight: 400;
-        }
-        .size-tag {
-            display: inline-block;
-            font-size: 11px;
-            color: #718096;
-            background: rgba(255,255,255,0.05);
-            padding: 2px 10px;
-            border-radius: 10px;
-            margin-top: 6px;
-        }
-
+        .icon-pdf { background: rgba(255,71,87,0.2); color: #ff6b81; box-shadow: var(--glow-pdf); }
+        .icon-audio1 { background: rgba(124,92,252,0.2); color: #9b7ef8; box-shadow: var(--glow-audio1); }
+        .icon-audio2 { background: rgba(0,210,211,0.2); color: #2ed573; box-shadow: var(--glow-audio2); }
+        .card-info { text-align: left; flex-grow: 1; }
+        .card-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+        .card-info p { font-size: 13px; color: #a0aec0; }
+        .size-tag { font-size: 11px; color: #718096; background: rgba(255,255,255,0.05); padding: 2px 10px; border-radius: 10px; display: inline-block; margin-top: 6px; }
         .download-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: white;
-            transition: all 0.3s;
-            flex-shrink: 0;
-            cursor: pointer;
+            width: 44px; height: 44px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: white; cursor: pointer;
         }
         .btn-pdf { background: linear-gradient(135deg, #ff4757, #ff6b81); }
         .btn-audio1 { background: linear-gradient(135deg, #5f3dc4, #7c5cfc); }
         .btn-audio2 { background: linear-gradient(135deg, #00b894, #00d2d3); }
-        .download-card:hover .download-btn {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .divider {
+        .questions-button {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: 28px;
             width: 100%;
-            height: 1px;
-            background: rgba(255,255,255,0.08);
-            margin: 8px 0 28px;
-        }
-
-        .footer {
+            cursor: pointer;
+            margin: 20px 0 28px;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 15px;
-            color: #a0aec0;
-            font-weight: 500;
+            gap: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-        .footer a {
-            color: #e1306c;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-flex;
+        .questions-button:hover { transform: scale(1.02); background: linear-gradient(135deg, #e67e22, #d35400); }
+        .divider { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin: 8px 0 28px; }
+        .footer { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; color: #a0aec0; }
+        .footer a { color: #e1306c; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+        .file-note { margin-top: 22px; font-size: 12px; color: #636e84; }
+
+        /* MODAL ESTILOS */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+ backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s;
         }
-        .footer a:hover {
-            opacity: 0.85;
-            text-shadow: 0 0 10px rgba(225,48,108,0.4);
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
         }
-
-        .file-note {
-            margin-top: 22px;
-            font-size: 12px;
-            color: #636e84;
-            line-height: 1.6;
+        .modal-container {
+            background: rgba(20, 18, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 32px;
+            width: 90%;
+            max-width: 850px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.5);
         }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 36px 20px 32px;
-                border-radius: 24px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            .download-card {
-                padding: 16px 18px;
-                gap: 12px;
-            }
-            .card-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 22px;
-                border-radius: 14px;
-            }
-            .download-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-                border-radius: 12px;
-            }
+        .modal-header {
+            padding: 20px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #FFD166, #FF9F4A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .close-modal {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+        .close-modal:hover { background: #ff4757; transform: scale(0.95); }
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px 30px;
+        }
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .alternatives {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 20px 0 24px;
+        }
+        .alt-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .alt-option.selected {
+            background: rgba(124,92,252,0.4);
+            border-color: #7c5cfc;
+            box-shadow: 0 0 12px rgba(124,92,252,0.3);
+        }
+        .alt-prefix {
+            font-weight: 800;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .alt-text { font-size: 0.95rem; flex: 1; }
+        .feedback-area {
+            background: rgba(0,0,0,0.4);
+            border-left: 5px solid #f39c12;
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        .feedback-correct { border-left-color: #2ed573; color: #baffc4; }
+        .feedback-wrong { border-left-color: #ff4757; color: #ffb8b8; }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .nav-btn, .confirm-btn, .finish-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+        }
+        .confirm-btn { background: linear-gradient(135deg, #7c5cfc, #5f3dc4); flex:1; }
+        .finish-btn { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .nav-btn:hover { background: rgba(255,255,255,0.25); }
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #b0b8d1;
+        }
+        .result-final {
+            text-align: center;
+            padding: 20px;
+        }
+        .result-final h3 { font-size: 2rem; margin-bottom: 12px; }
+        .proficiency-badge {
+            display: inline-block;
+            background: #00d2d3;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-weight: bold;
+            margin: 18px 0;
+        }
+        @media (max-width: 550px) {
+            .container { padding: 32px 20px; }
+            .modal-body { padding: 20px; }
+            .question-text { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- ==================== NUVEM DE PALAVRAS-CHAVE ==================== -->
-    <div class="word-cloud">
-        <span style="top:3%; left:5%; font-size:38px; color:#ff6b81; transform:rotate(-8deg);">PAULO FREIRE</span>
-        <span style="top:5%; right:8%; font-size:32px; color:#7c5cfc; transform:rotate(6deg);">ANDRAGOGIA</span>
-        <span style="top:10%; left:35%; font-size:28px; color:#00d2d3; transform:rotate(-4deg);">LETRAMENTO</span>
-        
-        <span style="top:22%; left:2%; font-size:22px; color:#feca57; transform:rotate(12deg);">CONSCIÊNCIA CRÍTICA</span>
-        <span style="top:18%; right:5%; font-size:26px; color:#ff9ff3; transform:rotate(-7deg);">ALFABETIZAÇÃO</span>
-        <span style="top:28%; left:50%; font-size:20px; color:#54a0ff; transform:rotate(90deg);">EJA</span>
-        
-        <span style="top:38%; left:8%; font-size:30px; color:#5f27cd; transform:rotate(-15deg);">NEUROCIÊNCIA</span>
-        <span style="top:42%; right:10%; font-size:36px; color:#ff6348; transform:rotate(5deg);">METODOLOGIAS ATIVAS</span>
-        <span style="top:35%; left:42%; font-size:18px; color:#1dd1a1; transform:rotate(-10deg);">GAMIFICAÇÃO</span>
-        
-        <span style="top:55%; left:3%; font-size:24px; color:#f368e0; transform:rotate(88deg);">INCLUSÃO</span>
-        <span style="top:52%; right:4%; font-size:34px; color:#00d2d3; transform:rotate(-3deg);">CURRÍCULO</span>
-        <span style="top:58%; left:38%; font-size:20px; color:#ff9f43; transform:rotate(7deg);">AVALIAÇÃO FORMATIVA</span>
-        
-        <span style="top:70%; left:10%; font-size:26px; color:#a29bfe; transform:rotate(-6deg);">DIREITOS HUMANOS</span>
-        <span style="top:68%; right:7%; font-size:22px; color:#fd79a8; transform:rotate(11deg);">PROBLEMATIZAÇÃO</span>
-        <span style="top:75%; left:48%; font-size:30px; color:#fdcb6e; transform:rotate(-92deg);">FUNÇÕES EXECUTIVAS</span>
-        
-        <span style="top:85%; left:5%; font-size:28px; color:#e056a0; transform:rotate(4deg);">TECNOLOGIAS</span>
-        <span style="top:82%; right:5%; font-size:20px; color:#0984e3; transform:rotate(-9deg);">QUILOMBOLA</span>
-        <span style="top:90%; left:35%; font-size:32px; color:#d63031; transform:rotate(86deg);">PRIVAÇÃO DE LIBERDADE</span>
-        
-        <span style="top:48%; left:20%; font-size:16px; color:#ffeaa7; transform:rotate(-80deg);">PEDAGOGIA</span>
-        <span style="top:62%; left:60%; font-size:18px; color:#dfe6e9; transform:rotate(25deg);">EDUCAÇÃO LIBERTADORA</span>
-        
-        <span style="top:15%; left:70%; font-size:15px; color:#fab1a0; transform:rotate(-35deg);">MOVA</span>
-        <span style="top:32%; left:75%; font-size:14px; color:#81ecec; transform:rotate(40deg);">MOBRAL</span>
-        <span style="top:78%; left:22%; font-size:17px; color:#55efc4; transform:rotate(-55deg);">LDBEN</span>
-        <span style="top:88%; left:65%; font-size:16px; color:#74b9ff; transform:rotate(18deg);">BNCC</span>
-        <span style="top:25%; left:22%; font-size:19px; color:#e17055; transform:rotate(70deg);">CIDADANIA</span>
-        <span style="top:65%; left:78%; font-size:21px; color:#6c5ce7; transform:rotate(-25deg);">INTERDISCIPLINAR</span>
-    </div>
-
-    <!-- Partículas de fundo -->
-    <div class="particles">
-        <div class="particle" style="width:200px;height:200px;top:10%;left:5%;"></div>
-        <div class="particle" style="width:300px;height:300px;top:60%;left:70%;"></div>
-        <div class="particle" style="width:150px;height:150px;top:30%;left:50%;"></div>
-    </div>
-
-    <!-- ==================== CONTAINER PRINCIPAL ==================== -->
+    <div class="word-cloud">...</div>
+    <div class="particles">...</div>
     <div class="container">
-        
-        <!-- Badge -->
-        <div class="badge">
-            <i class="fa-solid fa-graduation-cap"></i> Material de Estudo
-        </div>
-
-        <!-- Título -->
+        <div class="badge"><i class="fa-solid fa-graduation-cap"></i> Material de Estudo</div>
         <h1>Super Resumo EJA</h1>
-        <p class="subtitle">
-            Baixe o <span class="highlight">PDF completo</span> e os dois 
-            <span class="highlight">ÁudioCasts narrados</span> para revisar de onde estiver.
-        </p>
-
-        <!-- Cards de download -->
+        <p class="subtitle">Baixe o <span class="highlight">PDF completo</span> e os <span class="highlight">ÁudioCasts</span>. Teste seus conhecimentos!</p>
         <div class="download-grid">
-            
-            <!-- PDF -->
             <a href="./arquivos/resumo.pdf" download class="download-card card-pdf" data-filename="Apostila_Essencial_EJA.pdf">
-                <div class="card-icon icon-pdf">
-                    <i class="fa-solid fa-file-pdf"></i>
-                </div>
-                <div class="card-info">
-                    <h3>📄 Apostila Essencial</h3>
-                    <p>PDF completo • Semanas 1 a 8 + Questões</p>
-                    <span class="size-tag">~2.5 MB</span>
-                </div>
-                <div class="download-btn btn-pdf">
-                    <i class="fa-solid fa-download"></i>
-                </div>
+                <div class="card-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="card-info"><h3>📄 Apostila Essencial</h3><p>PDF completo • Semanas 1 a 8 + Questões</p><span class="size-tag">~2.5 MB</span></div>
+                <div class="download-btn btn-pdf"><i class="fa-solid fa-download"></i></div>
             </a>
-
-            <!-- Áudio 1 -->
             <a href="./arquivos/audio-parte1.m4a" download class="download-card card-audio1" data-filename="AudioCast_EJA_Episodio1_Fundamentos.m4a">
-                <div class="card-icon icon-audio1">
-                    <i class="fa-solid fa-headphones"></i>
-                </div>
-                <div class="card-info">
-                    <h3>🎧 ÁudioCast – 1º Episódio: Fundamentos históricos, legislação e o método Paulo Freire</h3>
-                    <p>Semanas 1 a 4 • História, Letramento, Freire</p>
-                    <span class="size-tag">~10 MB</span>
-                </div>
-                <div class="download-btn btn-audio1">
-                    <i class="fa-solid fa-download"></i>
-                </div>
+                <div class="card-icon icon-audio1"><i class="fa-solid fa-headphones"></i></div>
+                <div class="card-info"><h3>🎧 ÁudioCast – 1º Episódio: Fundamentos históricos</h3><p>Semanas 1 a 4 • História, Freire</p><span class="size-tag">~10 MB</span></div>
+                <div class="download-btn btn-audio1"><i class="fa-solid fa-download"></i></div>
             </a>
-
-            <!-- Áudio 2 -->
             <a href="./arquivos/audio-parte2.m4a" download class="download-card card-audio2" data-filename="AudioCast_EJA_Episodio2_Praticas.m4a">
-                <div class="card-icon icon-audio2">
-                    <i class="fa-solid fa-microphone-lines"></i>
-                </div>
-                <div class="card-info">
-                    <h3>🎙️ ÁudioCast – 2º Episódio: Currículo, neurociência, inclusão e práticas pedagógicas modernas</h3>
-                    <p>Semanas 5 a 8 • Inclusão, Tecnologia, Avaliação</p>
-                    <span class="size-tag">~8 MB</span>
-                </div>
-                <div class="download-btn btn-audio2">
-                    <i class="fa-solid fa-download"></i>
-                </div>
+                <div class="card-icon icon-audio2"><i class="fa-solid fa-microphone-lines"></i></div>
+                <div class="card-info"><h3>🎙️ ÁudioCast – 2º Episódio: Neurociência e práticas</h3><p>Semanas 5 a 8 • Inclusão, Tecnologia</p><span class="size-tag">~8 MB</span></div>
+                <div class="download-btn btn-audio2"><i class="fa-solid fa-download"></i></div>
             </a>
-
         </div>
-
-        <!-- Divisória -->
+        <!-- BOTÃO QUESTÕES INTERATIVAS -->
+        <button class="questions-button" id="openQuizBtn"><i class="fa-solid fa-pen-to-square"></i> 🧠 Responder 32 Questões EJA</button>
         <div class="divider"></div>
-
-        <!-- Autoria -->
-        <div class="footer">
-            <span>por</span>
-            <a href="https://www.instagram.com/prof.sergio.eric.matematica/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram"></i> @prof.sergio.eric.matematica
-            </a>
-        </div>
-
-        <!-- Nota sobre arquivos -->
-        <p class="file-note">
-            ⚡ Os arquivos estão disponíveis para download direto. Compatível com qualquer dispositivo.
-        </p>
-
+        <div class="footer"><span>por</span><a href="https://www.instagram.com/prof.sergio.eric.matematica/" target="_blank"><i class="fa-brands fa-instagram"></i> @prof.sergio.eric.matematica</a></div>
+        <p class="file-note">⚡ Arquivos para download. Teste seus conhecimentos com simulados interativos!</p>
     </div>
 
-    <!-- ==================== SCRIPT PARA FORÇAR DOWNLOAD ==================== -->
-    <script>
-        document.querySelectorAll('.download-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Apenas para os cards que realmente devem forçar download
-                const url = this.getAttribute('href');
-                const filename = this.getAttribute('data-filename') || url.split('/').pop();
-                
-                // Previne o comportamento padrão
-                e.preventDefault();
-                
-                // Força o download via fetch + blob
-                fetch(url)
-                    .then(response => response.blob())
-                    .then(blob => {
-                        const blobUrl = window.URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = blobUrl;
-                        a.download = filename;
-                        document.body.appendChild(a);
-                        a.click();
-                        a.remove();
-                        window.URL.revokeObjectURL(blobUrl);
-                    })
-                    .catch(err => {
-                        console.error('Erro ao baixar o arquivo:', err);
-                        // Fallback: abre em nova aba
-                        window.open(url, '_blank');
-                    });
-            });
-        });
-    </script>
+    <!-- MODAL QUESTÕES -->
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-brain"></i> Simulado EJA</h2>
+                <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- conteúdo dinâmico -->
+                <div id="quizContent"></div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // ---------- BANCO DE QUESTÕES (32 questões conforme material) ----------
+        const questionsData = [
+            { id:1, text:"1. A trajetória da Educação de Jovens e Adultos (EJA) no Brasil reflete mudanças políticas e sociais. Analise as afirmativas: I. O MOBRAL foi criado durante o regime militar com caráter assistencialista. II. A redemocratização trouxe o MOVA, inspirado em Paulo Freire. III. A Constituição de 1988 consolidou a EJA como direito universal. IV. A Campanha Nacional de Erradicação ao Analfabetismo (1947-1952) foi uma das primeiras iniciativas. V. O MOVA foi criado na década de 1960 pelo regime militar. Está correto:", options:[{letra:"A",texto:"I e II, apenas."},{letra:"B",texto:"I, III e V, apenas."},{letra:"C",texto:"I, II e IV, apenas."},{letra:"D",texto:"II e V, apenas."},{letra:"E",texto:"I, II, IV e V, apenas."}], correct:"C", justification:"Corretas I, II e IV. O MOVA surgiu na redemocratização, não na década de 60 pelo regime militar, e a afirmativa V está incorreta." },
+            { id:2, text:"2. LDBEN e a garantia da EJA como direito fundamental. Asserções: I. A LDBEN assegura a EJA como direito fundamental. II. A garantia depende de políticas públicas contínuas e financiamento adequado.", options:[{letra:"A",texto:"I falsa, II verdadeira"},{letra:"B",texto:"Ambas verdadeiras e II justifica I"},{letra:"C",texto:"I verdadeira, II falsa"},{letra:"D",texto:"Ambas verdadeiras mas II não justifica I"},{letra:"E",texto:"Ambas falsas"}], correct:"B", justification:"Ambas são verdadeiras, e a II explica que sem políticas efetivas o direito não se concretiza." },
+            { id:3, text:"3. Exílio de Paulo Freire no Chile: trabalhou no ICIRA, teve contato com [____] e influenciou a redação de [____].", options:[{letra:"A",texto:"autoridades gov - Extensão ou Comunicação?"},{letra:"B",texto:"estudantes universitários - Educação como Prática da Liberdade"},{letra:"C",texto:"líderes religiosos - Ação Cultural para a Liberdade"},{letra:"D",texto:"intelectuais e trabalhadores - Pedagogia do Oprimido"},{letra:"E",texto:"trabalhadores rurais - Pedagogia da Esperança"}], correct:"D", justification:"Freire no Chile conviveu com intelectuais e trabalhadores, escrevendo Pedagogia do Oprimido." },
+            { id:4, text:"4. Métodos de alfabetização na EJA. Qual abordagem sintetiza prática inclusiva e contextualizada?", options:[{letra:"A",texto:"Método silábico priorizando sílabas isoladas"},{letra:"B",texto:"Método global restrito a textos complexos"},{letra:"C",texto:"Método fônico exclusivo"},{letra:"D",texto:"Silábico com ênfase na cópia"},{letra:"E",texto:"Integração dos métodos fônico, silábico e global adaptado aos alunos"}], correct:"E", justification:"A abordagem mais inclusiva integra diferentes métodos conforme as necessidades dos estudantes." },
+            { id:5, text:"5. Projeto inspirado nas 40 Horas de Angicos: educador inicia com palavras significativas da realidade local. Princípio aplicado:", options:[{letra:"A",texto:"Educação tradicional"},{letra:"B",texto:"Educação formal rígida"},{letra:"C",texto:"Educação tecnicista"},{letra:"D",texto:"Educação bancária"},{letra:"E",texto:"Educação crítica, reflexão a partir da realidade"}], correct:"E", justification:"Paulo Freire valoriza a contextualização e a conscientização crítica." },
+            { id:6, text:"6. Andragogia: professor de EJA usa atividades práticas como preenchimento de formulários e orçamento doméstico. Princípio aplicado:", options:[{letra:"A",texto:"Necessidade de saber teórico"},{letra:"B",texto:"Prontidão para memorização"},{letra:"C",texto:"Autoconceito rígido"},{letra:"D",texto:"Papel das experiências prévias"},{letra:"E",texto:"Orientação limitada a teoria"}], correct:"D", justification:"A andragogia valoriza a experiência do aluno como recurso de aprendizagem." },
+            { id:7, text:"7. Propósito da inclusão de cidadania e direitos humanos no currículo da EJA:", options:[{letra:"A",texto:"Formação técnica"},{letra:"B",texto:"Apenas teoria desconectada"},{letra:"C",texto:"Compreender direitos/deveres, formar cidadãos conscientes"},{letra:"D",texto:"Priorizar críticos mas sem direitos humanos"},{letra:"E",texto:"Foco exclusivo em informações sem realidade"}], correct:"C", justification:"Objetivo é formar cidadãos capazes de atuar na sociedade com consciência crítica." },
+            { id:8, text:"8. Abordagem curricular acadêmica na EJA:", options:[{letra:"A",texto:"Foco na transmissão formal e certificação, sem ênfase crítica"},{letra:"B",texto:"Adaptação à realidade e desenvolvimento crítico"},{letra:"C",texto:"Autonomia e transformação social"},{letra:"D",texto:"Agentes de mudança"},{letra:"E",texto:"Controle do professor, aluno passivo"}], correct:"A", justification:"A abordagem acadêmica tradicional prioriza conteúdo formal e certificação." },
+            { id:9, text:"9. Associe conceitos de Freire: I-Dialogicidade, II-Conscientização, III-Problematização, IV-Educação bancária. Descrições: (C) diálogo construção, (B) reconhecer realidade, (D) desafiar reflexão, (A) depósito de informações.", options:[{letra:"A",texto:"I-C, II-B, III-D, IV-A"},{letra:"B",texto:"I-B, II-C, III-A, IV-D"},{letra:"C",texto:"I-C, II-A, III-D, IV-B"},{letra:"D",texto:"I-A, II-D, III-B, IV-C"},{letra:"E",texto:"I-D, II-A, III-C, IV-B"}], correct:"A", justification:"Dialogicidade = diálogo (C); Conscientização = reconhecer realidade (B); Problematização = desafiar reflexão (D); Educação bancária = depósito (A)." },
+            { id:10, text:"10. Método de Freire que enfatiza diálogo para desenvolver criticidade: [problematizador] e [libertador].", options:[{letra:"A",texto:"prático; técnico"},{letra:"B",texto:"passivo; mecânico"},{letra:"C",texto:"memorístico; tradicional"},{letra:"D",texto:"problematizador; libertador"},{letra:"E",texto:"autoritário; vertical"}], correct:"D", justification:"Freire propõe método problematizador e libertador centrado no diálogo." },
+            { id:11, text:"11. Organização curricular na EJA conforme diretrizes:", options:[{letra:"A",texto:"Currículo flexível e adaptado às necessidades"},{letra:"B",texto:"Padronizado e igual para todos"},{letra:"C",texto:"Cronograma rigoroso sem adaptações"},{letra:"D",texto:"Participação dos alunos dispensável"},{letra:"E",texto:"Foco na memorização"}], correct:"A", justification:"A EJA exige currículo flexível, significativo e contextualizado." },
+            { id:12, text:"12. Prática avaliativa que respeita autonomia e diálogo:", options:[{letra:"A",texto:"Autoavaliações periódicas com reflexão"},{letra:"B",texto:"Testes múltipla escolha regulares"},{letra:"C",texto:"Avaliações orais sem participação"},{letra:"D",texto:"Questionários anônimos de satisfação"},{letra:"E",texto:"Provas padronizadas ao final"}], correct:"A", justification:"Autoavaliação promove reflexão e participação ativa do estudante." },
+            { id:13, text:"13. Funções da EJA: I-Reparadora, II-Equalizadora, III-Qualificadora. Associe: (B) compensar escolarização, (A) inclusão e igualdade, (C) desenvolvimento contínuo.", options:[{letra:"A",texto:"I-C; II-B; III-A"},{letra:"B",texto:"I-A; II-B; III-C"},{letra:"C",texto:"I-C; II-A; III-B"},{letra:"D",texto:"I-B; II-A; III-C"},{letra:"E",texto:"I-B; II-C; III-A"}], correct:"D", justification:"Reparadora compensa (B), Equalizadora promove igualdade (A), Qualificadora desenvolvimento (C)." },
+            { id:14, text:"14. Objetivo principal das metodologias ativas na EJA:", options:[{letra:"A",texto:"Ensino tradicional"},{letra:"B",texto:"Foco exclusivo em tecnologia"},{letra:"C",texto:"Protagonismo do estudante, reflexão crítica"},{letra:"D",texto:"Professor centro do processo"},{letra:"E",texto:"Testes padronizados"}], correct:"C", justification:"Metodologias ativas colocam o aluno como protagonista." },
+            { id:15, text:"15. Análise: metodologias ativas nem sempre eficazes na EJA devido a fatores como pouca familiaridade com tecnologia. Asserção II explica necessidade de considerar especificidades.", options:[{letra:"A",texto:"I falsa, II verdadeira"},{letra:"B",texto:"I verdadeira, II falsa"},{letra:"C",texto:"Ambas verdadeiras sem justificativa"},{letra:"D",texto:"Ambas falsas"},{letra:"E",texto:"Ambas verdadeiras e II justifica I"}], correct:"E", justification:"De fato, metodologias ativas requerem adaptação; a II justifica a ressalva da I." },
+            { id:16, text:"16. Diálogo na EJA: Paulo Freire destaca que o(a) [____] é fundamental e ajuda superar [____].", options:[{letra:"A",texto:"prática; infraestrutura"},{letra:"B",texto:"memorização; material"},{letra:"C",texto:"diálogo; vergonha"},{letra:"D",texto:"medo; recurso"},{letra:"E",texto:"autoridade; motivação"}], correct:"C", justification:"O diálogo transformador supera a vergonha e barreiras emocionais." },
+            { id:17, text:"17. Planejamento de projetos na EJA: afirmativas corretas? I. Definir objetivos; II. Priorizar preferências sem equilíbrio; III. Investigação e hipóteses antes das ações; IV. Metodologias ativas rompem modelos tradicionais.", options:[{letra:"A",texto:"I, III e IV, apenas"},{letra:"B",texto:"II, apenas"},{letra:"C",texto:"I, II e III"},{letra:"D",texto:"III e IV"},{letra:"E",texto:"I e IV"}], correct:"A", justification:"Afirmativa II está incorreta (precisa equilibrar currículo e interesses)." },
+            { id:18, text:"18. Sobre tecnologias digitais na formação docente: afirmativas corretas? I. Amplia interação; II. Elimina necessidade de formação continuada; III. Facilita acesso a recursos; IV. Deve-se usar com cautela priorizando métodos tradicionais.", options:[{letra:"A",texto:"I e II"},{letra:"B",texto:"I, III e IV"},{letra:"C",texto:"I e III"},{letra:"D",texto:"II e IV"},{letra:"E",texto:"I, II e III"}], correct:"C", justification:"II é falsa (formação continuada é essencial); IV não é verdadeira (inovação é bem-vinda)." },
+            { id:19, text:"19. TICs na educação: afirmativas corretas? I. Personalização do aprendizado; II. Substituem integralmente métodos tradicionais; III. Cibercultura e inteligência coletiva; IV. Dispensáveis na EJA.", options:[{letra:"A",texto:"I, II e III"},{letra:"B",texto:"II e IV"},{letra:"C",texto:"I e II"},{letra:"D",texto:"III e IV"},{letra:"E",texto:"I e III"}], correct:"E", justification:"II e IV são falsas; TICs complementam e são relevantes." },
+            { id:20, text:"20. Abordagem eficaz para alfabetização de jovens e adultos:", options:[{letra:"A",texto:"Integrar alfabetização centrada no aluno, valorizando experiências e habilidades práticas"},{letra:"B",texto:"Priorizar alfabetização funcional apenas em sala"},{letra:"C",texto:"Adaptar currículo às necessidades individuais, sem integração"},{letra:"D",texto:"Equilibrar mercado de trabalho com alfabetização robusta"},{letra:"E",texto:"Currículo balanceado, mas sem foco em vivências"}], correct:"A", justification:"A abordagem mais eficaz é centrada no aluno, contextualizada e significativa." },
+            { id:21, text:"21. Mediação pedagógica na EJA contribui para transformação social porque:", options:[{letra:"A",texto:"foca no domínio de conteúdos integrando visão crítica"},{letra:"B",texto:"valoriza integração ao meio social e questionamento de normas"},{letra:"C",texto:"ênfase no mercado de trabalho contextualizado"},{letra:"D",texto:"promove competências técnico-científicas"},{letra:"E",texto:"estimula pensamento reflexivo e busca por melhorias de vida e cidadania"}], correct:"E", justification:"Alternativa E abrange diretamente a promoção da cidadania e transformação pessoal/social." },
+            { id:22, text:"22. Principal conceito de letramento:", options:[{letra:"A",texto:"Processo complementar à alfabetização"},{letra:"B",texto:"Capacidade de usar leitura/escrita de forma significativa e funcional em contextos sociais"},{letra:"C",texto:"Ensino da decodificação"},{letra:"D",texto:"Processo escolar exclusivo"},{letra:"E",texto:"Habilidade de escrever corretamente"}], correct:"B", justification:"Letramento envolve uso social e funcional da leitura e escrita." },
+            { id:23, text:"23. Distinção entre consciência ingênua e crítica:", options:[{letra:"A",texto:"Ingênua: interpretação simplista; Crítica: análise profunda e causas racionais"},{letra:"B",texto:"Ingênua: receptiva sem questionamento; Crítica: crê em explicações fabulosas"}], correct:"A", justification:"Consciência crítica substitui explicações mágicas por racionais e aprofundadas." },
+            { id:24, text:"24. Conceito de letramento científico:", options:[{letra:"A",texto:"Compreender e usar conhecimentos científicos de forma crítica e reflexiva ligada ao cotidiano"},{letra:"B",texto:"Assimilação de informações essenciais"},{letra:"C",texto:"Ensino de ciências apenas na escola"},{letra:"D",texto:"Uso de terminologias científicas"},{letra:"E",texto:"Leitura e interpretação de textos científicos"}], correct:"A", justification:"Letramento científico relaciona saber científico com vida cotidiana e postura crítica." },
+            { id:25, text:"25. Alfabetização, letramento e mediação na EJA: afirmativas corretas? I. Alfabetização = decodificação; II. Letramento = práticas sociais significativas; III. Mediação promove reflexão crítica.", options:[{letra:"A",texto:"III apenas"},{letra:"B",texto:"II apenas"},{letra:"C",texto:"I apenas"},{letra:"D",texto:"I, II e III"},{letra:"E",texto:"II e III apenas"}], correct:"E", justification:"I é incompleta (alfabetização vai além da decodificação); II e III estão corretas." },
+            { id:26, text:"26. Estratégias pedagógicas para marginalizados: I. Projetos interdisciplinares conectados à vivência; II. Foco técnico desconsiderando contexto; III. Debates reflexivos; IV. Métodos tradicionais de memorização.", options:[{letra:"A",texto:"II e IV"},{letra:"B",texto:"III e IV"},{letra:"C",texto:"I e III"},{letra:"D",texto:"I, II, III e IV"},{letra:"E",texto:"I e II"}], correct:"C", justification:"I e III promovem criticidade e contextualização." },
+            { id:27, text:"27. Educação em privação de liberdade: afirmativas corretas? I. Foco exclusivo em conteúdos; II. Promove reflexão crítica; III. Adaptação curricular com autonomia; IV. Neutra para evitar dinâmicas; V. Reintegração responsabilidade exclusiva do sistema penal.", options:[{letra:"A",texto:"II e V"},{letra:"B",texto:"I apenas"},{letra:"C",texto:"II e III"},{letra:"D",texto:"I, II, III e IV"},{letra:"E",texto:"III e IV"}], correct:"C", justification:"A educação deve promover reflexão crítica e adaptar-se com autonomia, não neutra." },
+            { id:28, text:"28. Estratégia eficaz para populações quilombolas, indígenas na EJA:", options:[{letra:"A",texto:"Currículo padronizado"},{letra:"B",texto:"Sistema rígido de normas"},{letra:"C",texto:"Currículos que integram saberes tradicionais e culturais"},{letra:"D",texto:"Ensino a distância uniforme"},{letra:"E",texto:"Priorizar alfabetização de camponeses"}], correct:"C", justification:"Valorização da identidade cultural e inclusão social." },
+            { id:29, text:"29. Estratégias para ensino inclusivo em prisões (alta rotatividade): I. Módulos autônomos; II. Metodologias ativas colaborativas; III. Conteúdos teóricos abstratos; IV. Materiais de autoaprendizagem; V. Metas rígidas.", options:[{letra:"A",texto:"I, II e IV"},{letra:"B",texto:"I, IV e V"},{letra:"C",texto:"II, IV e V"},{letra:"D",texto:"I, II e III"},{letra:"E",texto:"II, III e V"}], correct:"A", justification:"Módulos autônomos, metodologias ativas e autoaprendizagem são eficazes." },
+            { id:30, text:"30. Educação de adultos como direito humano: [essencial] à participação, [interligada] aos outros direitos, garantindo [inclusão] social.", options:[{letra:"A",texto:"essencial; interligada; inclusão"},{letra:"B",texto:"opcional; paralela; separação"},{letra:"C",texto:"periférica; desconectada; exclusão"},{letra:"D",texto:"subordinada; independente; equidade"},{letra:"E",texto:"secundária; associada; segmentação"}], correct:"A", justification:"Educação de adultos é essencial e interligada a outros direitos humanos." },
+            { id:31, text:"31. Internacionalização de empresas: estratégias adequadas? (contexto adaptado à prova) I. Personalização local; II. Estratégia global uniforme; III. Pesquisa de mercado; IV. Marketing com valores locais; V. Reduzir custos sem considerar variações.", options:[{letra:"A",texto:"I e II"},{letra:"B",texto:"II e V"},{letra:"C",texto:"I, II, III, IV e V"},{letra:"D",texto:"I, III e IV"},{letra:"E",texto:"III, IV e V"}], correct:"D", justification:"Personalização, pesquisa e campanhas locais são ideais." },
+            { id:32, text:"32. Frequência escolar na EJA: asserções - I. Participação integral considerando interação além da presença; II. Justificativas de ausência incluem fatores sociais, trabalho, saúde, etc.", options:[{letra:"A",texto:"I verdadeira, II falsa"},{letra:"B",texto:"Ambas verdadeiras, II não justifica I"},{letra:"C",texto:"Ambas verdadeiras e II justifica I"},{letra:"D",texto:"I falsa, II verdadeira"},{letra:"E",texto:"Ambas falsas"}], correct:"C", justification:"A integralidade da participação é apoiada pelo reconhecimento das múltiplas justificativas." }
+        ];
+
+        let userAnswers = new Array(32).fill(null);
+        let currentIndex = 0;
+        let answeredFlag = new Array(32).fill(false); // se já respondeu a questão (para liberar navegação?)
+        let feedbackGiven = new Array(32).fill(false);
+        
+        const modal = document.getElementById('quizModal');
+        const openBtn = document.getElementById('openQuizBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const quizContent = document.getElementById('quizContent');
+
+        function renderQuestion() {
+            const q = questionsData[currentIndex];
+            const selected = userAnswers[currentIndex];
+            const isAnswered = feedbackGiven[currentIndex];
+            let feedbackHtml = '';
+            if (isAnswered && selected) {
+                const isCorrect = (selected === q.correct);
+                const feedbackClass = isCorrect ? 'feedback-correct' : 'feedback-wrong';
+                const correctLetter = q.correct;
+                const correctText = q.options.find(opt => opt.letra === correctLetter)?.texto || '';
+                feedbackHtml = `<div class="feedback-area ${feedbackClass}">
+                    <strong>${isCorrect ? '✅ ACERTOU!' : '❌ ERROU!'}</strong><br>
+                    ${isCorrect ? 'Parabéns! ' : `A resposta correta é ${correctLetter}: ${correctText}. `}
+                    <em>${q.justification}</em>
+                </div>`;
+            }
+            let alternativesHtml = q.options.map(opt => {
+                const isSelected = (selected === opt.letra);
+                return `<div class="alt-option ${isSelected ? 'selected' : ''}" data-letra="${opt.letra}">
+                    <div class="alt-prefix">${opt.letra}</div>
+                    <div class="alt-text">${opt.texto}</div>
+                </div>`;
+            }).join('');
+            
+            const html = `
+                <div class="progress"><span>Questão ${currentIndex+1} de 32</span><span>${userAnswers.filter(a=>a!==null).length} respondidas</span></div>
+                <div class="question-text">${q.text}</div>
+                <div class="alternatives" id="alternativesContainer">${alternativesHtml}</div>
+                ${feedbackHtml}
+                <div class="nav-buttons">
+                    <button class="nav-btn" id="prevBtn" ${currentIndex===0 ? 'disabled style="opacity:0.4"' : ''}><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                    ${!isAnswered ? `<button class="confirm-btn" id="confirmAnswerBtn">✔️ Confirmar Resposta</button>` : `<button class="confirm-btn" id="editAnswerBtn" style="background:#2c3e66;">✏️ Editar Resposta</button>`}
+                    <button class="nav-btn" id="nextBtn">Próxima <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div style="margin-top:20px; text-align:center;">
+                    <button class="finish-btn" id="finishQuizBtn">🏁 Finalizar e Ver Proficiência</button>
+                </div>
+            `;
+            quizContent.innerHTML = html;
+            
+            document.querySelectorAll('.alt-option').forEach(el => {
+                el.addEventListener('click', () => {
+                    if (!feedbackGiven[currentIndex]) {
+                        const letra = el.getAttribute('data-letra');
+                        userAnswers[currentIndex] = letra;
+                        renderQuestion();
+                    }
+                });
+            });
+            document.getElementById('prevBtn')?.addEventListener('click', () => { if(currentIndex > 0) { currentIndex--; renderQuestion(); } });
+            document.getElementById('nextBtn')?.addEventListener('click', () => { if(currentIndex < 31) { currentIndex++; renderQuestion(); } });
+            document.getElementById('confirmAnswerBtn')?.addEventListener('click', () => {
+                if(!userAnswers[currentIndex]) { alert("Selecione uma alternativa antes de confirmar."); return; }
+                feedbackGiven[currentIndex] = true;
+                renderQuestion();
+            });
+            document.getElementById('editAnswerBtn')?.addEventListener('click', () => {
+                feedbackGiven[currentIndex] = false;
+                renderQuestion();
+            });
+            document.getElementById('finishQuizBtn')?.addEventListener('click', showFinalResult);
+        }
+        
+        function showFinalResult() {
+            let total = questionsData.length;
+            let correctCount = 0;
+            for(let i=0; i<total; i++) {
+                if(userAnswers[i] && userAnswers[i] === questionsData[i].correct) correctCount++;
+            }
+            let percent = (correctCount / total) * 100;
+            let proficiency = "";
+            if(percent >= 90) proficiency = "🏆 Excelente! Domínio avançado.";
+            else if(percent >= 70) proficiency = "👍 Bom! Parabéns, continue revisando.";
+            else if(percent >= 50) proficiency = "📚 Regular, sugiro revisar os áudios e o PDF.";
+            else proficiency = "📖 Aproveite os materiais de estudo e tente novamente!";
+            
+            let resultHtml = `<div class="result-final">
+                <h3>📊 Resultado Final</h3>
+                <div style="font-size:2rem; font-weight:800;">${correctCount}/${total}</div>
+                <div style="font-size:1.2rem;">Acertos: ${percent.toFixed(1)}%</div>
+                <div class="proficiency-badge">${proficiency}</div>
+                <p>Você respondeu ${userAnswers.filter(a=>a!==null).length} questões. Revise as que errou para fixar melhor.</p>
+                <button id="closeResultBtn" class="confirm-btn" style="margin-top:20px;">Fechar Simulado</button>
+            </div>`;
+            quizContent.innerHTML = resultHtml;
+            document.getElementById('closeResultBtn')?.addEventListener('click', () => { modal.classList.remove('active'); });
+        }
+        
+        openBtn.addEventListener('click', () => {
+            userAnswers.fill(null);
+            feedbackGiven.fill(false);
+            currentIndex = 0;
+            modal.classList.add('active');
+            renderQuestion();
+        });
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+    </script>
 </body>
 </html>
